@@ -26,7 +26,6 @@
 ***********/
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
-
 @font-face {
     font-family: 'Futura';
     src: url('../fonts/FuturaLT-Book.ttf') format('truetype');
@@ -1487,16 +1486,6 @@ section {
     max-width: 110px;
 }
 
-
-
-
-
-
-
-
-
-
-
 .pointer {
     cursor: pointer !important;
 }
@@ -1656,7 +1645,6 @@ h3 {
     line-height: 1.5rem;
 }
 
-
 .product-detail {
     margin-left: 0;
     margin-right: 0;
@@ -1683,4 +1671,127 @@ h3 {
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 2px;
+}
+
+.price-base-md {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4rem;
+}
+
+.product-buy-information-block .product-price .price-main-md {
+    margin-bottom: 20px;
+}
+
+.lowest-price:only-of-type .price-main-md {
+    color: #ea2840;
+}
+
+.color-red {
+    color: red;
+}
+
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-cart {
+    /* width: 27% !important; */
+    height: 50% !important
+}
+
+.cart-item {
+    border-bottom: 1px solid #ccc;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 24px 12px 20px;
+    display: table;
+    width: 100%;
+}
+
+.cart-item .image-container {
+    text-align: center;
+    display: table-cell;
+    float: none;
+    vertical-align: top;
+}
+
+.cart-item .item-title {
+    margin-bottom: 12px;
+}
+
+.cart-item .item-title a {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.cart-item .item-title .badge-condition-type {
+    font-size: .8rem;
+}
+
+.cart-item .badge-condition-type {
+    font-size: .8rem;
+    margin-top: 12px;
+}
+
+.badge-condition-type {
+    margin-top: 12px;
+    font-size: .9rem;
+}
+
+.badge-condition-type {
+    font-family: Arial, Roboto, "-apple-system", Helvetica, sans-serif;
+    font-size: .8rem;
+    color: #333;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.price-promotional {
+    color: #ea2840;
+}
+
+.cart-item .amount-section {
+    float: right;
+    padding-right: 8px;
+}
+
+.cart-item .delivery-section {
+    padding-right: 12px;
+}
+
+.cart-item .delivery-section .badge-free-shipping {
+    font-size: .9rem;
+    margin-bottom: 20px;
+}
+
+.badge-free-shipping {
+    font-size: .9rem;
+    font-weight: 700;
+    font-family: Arial, Roboto, "-apple-system", Helvetica, sans-serif;
+    color: #45a00a;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.price-section {
+    margin-top: 11px;
+}
+
+.cart-item .amount-section p {
+    float: left;
+    margin-bottom: 6px;
+    margin-right: 8px;
+    margin-top: 6px;
+}
+
+.cart-item .amount-section select {
+    float: left;
+    margin: 0;
+    width: 60px;
 }

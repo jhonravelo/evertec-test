@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="product_buttons">
                                     <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                        <div onclick="buyProduct()"
+                                        <div onclick="buyProduct('{{$product->id}}')"
                                             class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                             <div>
                                                 <div>

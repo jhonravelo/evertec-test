@@ -4,9 +4,9 @@ Auth::routes();
 
 Route::get('/', 'Shop\OrderController@index');
 Route::get('/order/create', 'Shop\OrderController@create');
-Route::get('/order/{id}', 'Shop\OrderController@show');
-Route::get('/order/{id}/edit', 'Shop\OrderController@edit');
-Route::get('/order/{id}/cart', 'Shop\OrderController@cart');
+Route::get('/order/{order}', 'Shop\OrderController@show');
+Route::get('/order/{order}/edit', 'Shop\OrderController@edit');
+Route::get('/order/{order}/cart', 'Shop\OrderController@cart');
 
 
 

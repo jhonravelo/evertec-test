@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
-use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,7 @@ class OrderController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('shop.index', compact('products'));
+        return response()->json($products);
     }
 
     /**
@@ -27,7 +26,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('shop.order.create');
+        //
     }
 
     /**
@@ -38,73 +37,51 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->input();
-        $order = Order::create($data);
-        $order->save();
-        $order->detail()->create($data['detail']);
-
-        return response()->json($order);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Product $product)
     {
-        return view('shop.show', compact('order'));
+        return response()->json($product);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(Product $product)
     {
-        return view('shop.edit', compact(`order`));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
-    {
-        $data = $request->input();
-
-        $order->update($data);
-
-        $order->detail()->updateOrCreate($data->details);
-
-        return response()->json($order);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
+    public function update(Request $request, Product $product)
     {
         //
     }
 
     /**
-     * cart the form for editing the specified resource.
+     * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function cart(Order $order)
+    public function destroy(Product $product)
     {
-        return view('shop.order.cart', compact('order'));
+        //
     }
 }
