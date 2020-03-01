@@ -73,7 +73,7 @@
             </div>
         </div>
 
-        <div class="super_container">
+        <div class="super_container" onmousedown="return false">
 
             <!-- Header -->
 
@@ -82,7 +82,7 @@
                 <div class="header_content d-flex flex-row align-items-center justify-content-start">
 
                     <div class="logo">
-                        <a href="#">
+                        <a href="./">
                             <div class="d-flex flex-row align-items-center justify-content-start">
                                 <div>
                                     <img src="{{ asset('asset/images/logo_1.png') }}" alt="">
@@ -99,13 +99,13 @@
                     <nav class="main_nav">
                         <ul class="d-flex flex-row align-items-start justify-content-start">
                             <li class="active">
-                                <a href="#">New</a>
+                                <a type="button">New</a>
                             </li>
                             <li>
-                                <a href="#">Second</a>
+                                <a type="button">Second</a>
                             </li>
                             <li>
-                                <a href="#">Favorites</a>
+                                <a type="button">Favorites</a>
                             </li>
                         </ul>
                     </nav>
@@ -124,7 +124,7 @@
                         </div>
 
                         <!-- Cart -->
-                        <div class="cart"><a href="cart.html">
+                        <div class="cart"><a href="cart">
                                 <div>
                                     <img class="svg" src="{{ asset('asset/images/cart.svg') }}"
                                         alt="https://www.flaticon.com/authors/freepik">
@@ -248,6 +248,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/all.js') }}" defer></script>
+    <script src="{{ asset('js/shop.js') }}" defer></script>
 
 
     </div>
