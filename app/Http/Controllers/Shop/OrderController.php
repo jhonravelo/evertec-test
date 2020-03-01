@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -15,7 +16,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('shop.index', compact('products'));
     }
 
     /**
@@ -95,5 +97,16 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+     /**
+     * cart the form for editing the specified resource.
+     *
+     * @param  \App\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function cart(Order $order)
+    {
+        return view('shop.order.cart', $order);
     }
 }

@@ -39,33 +39,36 @@
 
                 <!-- Product -->
 
-                <div class="col-xl-4 col-md-6">
-                    <div class="product">
-                        <div class="product_image">
-                            <img src="{{ asset('asset/images/product_1.jpg') }}" alt="">
-                        </div>
-                        <div class="product_content">
-                            <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                <div>
+                @foreach($products as $product)
+
+                    <div class="col-xl-4 col-md-6">
+                        <div class="product">
+                            <div class="product_image">
+                                <img src="{{$product->image}}" alt="">
+                            </div>
+                            <div class="product_content">
+                                <div class="product_info d-flex flex-row align-items-start justify-content-start">
                                     <div>
-                                        <div class="product_name">
-                                            <a href="product.html">Cool Clothing with Brown Stripes</a>
+                                        <div>
+                                            <div class="product_name">
+                                                <a href="product.html">{{$product->description}}</a>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="ml-auto text-right">
+                                        <!-- <div class="product_category">In <a href="category.html">Category</a></div> -->
+                                        <div class="product_price text-right">{{$product->price}}<span></span></div>
+                                    </div>
                                 </div>
-                                <div class="ml-auto text-right">
-                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                    <div class="product_price text-right">$3<span>.99</span></div>
-                                </div>
-                            </div>
-                            <div class="product_buttons">
-                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
-                                        class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                        <div>
+                                <div class="product_buttons">
+                                    <div class="text-right d-flex flex-row align-items-start justify-content-start">
+                                        <div onclick="buyProduct()"
+                                            class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                             <div>
-                                                <img src="{{ asset('asset/images/cart.svg') }}" class="svg" alt="">
-                                                <div>+</div>
+                                                <div>
+                                                    <img src="{{ asset('asset/images/cart.svg') }}" class="svg" alt="">
+                                                    <div>+</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -73,198 +76,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Product -->
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="product">
-                        <div class="product_image">
-                            <img src="{{ asset('asset/images/product_2.jpg') }}" alt="">
-                        </div>
-                        <div class="product_content">
-                            <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                <div>
-                                    <div>
-                                        <div class="product_name">
-                                            <a href="product.html">Cool Clothing with Brown Stripes</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-auto text-right">
-                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                    <div class="product_price text-right">$3<span>.99</span></div>
-                                </div>
-                            </div>
-                            <div class="product_buttons">
-                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
-                                        class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('asset/images/cart.svg') }}" class="svg" alt="">
-                                                <div>+</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product -->
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="product">
-                        <div class="product_image">
-                            <img src="{{ asset('asset/images/product_3.jpg') }}" alt="">
-                        </div>
-                        <div class="product_content">
-                            <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                <div>
-                                    <div>
-                                        <div class="product_name">
-                                            <a href="product.html">Cool Clothing with BrownStripes</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-auto text-right">
-                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                    <div class="product_price text-right">$3<span>.99</span></div>
-                                </div>
-                            </div>
-                            <div class="product_buttons">
-                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
-                                        class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('asset/images/cart.svg') }}" class="svg" alt="">
-                                                <div>+</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product -->
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="product">
-                        <div class="product_image">
-                            <img src="{{ asset('asset/images/product_4.jpg') }}" alt="">
-                        </div>
-                        <div class="product_content">
-                            <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                <div>
-                                    <div>
-                                        <div class="product_name">
-                                            <a href="product.html">Cool Clothing with Brown Stripes</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-auto text-right">
-                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                    <div class="product_price text-right">$3<span>.99</span></div>
-                                </div>
-                            </div>
-                            <div class="product_buttons">
-                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
-                                        class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('asset/images/cart.svg') }}" class="svg" alt="">
-                                                <div>+</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product -->
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="product">
-                        <div class="product_image">
-                            <img src="{{ asset('asset/images/product_5.jpg') }}" alt="">
-                        </div>
-                        <div class="product_content">
-                            <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                <div>
-                                    <div>
-                                        <div class="product_name">
-                                            <a href="product.html">Cool Clothing with Brown Stripes</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-auto text-right">
-                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                    <div class="product_price text-right">$3<span>.99</span></div>
-                                </div>
-                            </div>
-                            <div class="product_buttons">
-                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
-                                        class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('asset/images/cart.svg') }}" class="svg" alt="">
-                                                <div>+</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product -->
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="product">
-                        <div class="product_image">
-                            <img src="{{ asset('asset/images/product_6.jpg') }}" alt="">
-                        </div>
-                        <div class="product_content">
-                            <div class="product_info d-flex flex-row align-items-start justify-content-start">
-                                <div>
-                                    <div>
-                                        <div class="product_name">
-                                            <a href="product.html">Cool Clothing with BrownStripes</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-auto text-right">
-                                    <div class="product_category">In <a href="category.html">Category</a></div>
-                                    <div class="product_price text-right">$3<span>.99</span></div>
-                                </div>
-                            </div>
-                            <div class="product_buttons">
-                                <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
-                                        class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('asset/images/cart.svg') }}" class="svg" alt="">
-                                                <div>+</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
 
             </div>
         </div>

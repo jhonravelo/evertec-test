@@ -17,5 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('order','Shop\OrderController@store')->names('api.order');
-Route::put('order','Shop\OrderController@update')->names('api.order');
+Route::post('order','Shop\OrderController@store')->name('api.order');
+Route::put('order','Shop\OrderController@update')->name('api.order');

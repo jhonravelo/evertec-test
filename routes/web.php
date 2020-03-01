@@ -1,18 +1,12 @@
 <?php
-use App\Image;
-use App\Product;
 
 Auth::routes();
-Route::get('/', function () {
-    return view('tienda.index');
-});
-Route::get('/order', function () {
-    return view('tienda.order');
-});
-Route::get('/cart', function () {
-    return view('tienda.cart');
-});
 
+Route::get('/', 'Shop\OrderController@index');
+Route::get('/order/create', 'Shop\OrderController@create');
+Route::get('/order/{id}', 'Shop\OrderController@show');
+Route::get('/order/{id}/edit', 'Shop\OrderController@edit');
+Route::get('/order/{id}/cart', 'Shop\OrderController@cart');
 
 
 
