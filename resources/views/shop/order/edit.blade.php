@@ -1,4 +1,4 @@
-@extends('plantilla.plantilla')
+@extends('layouts.shop')
 @section('titulo','EvertecShop')
 @section('estilos')
 
@@ -60,7 +60,7 @@
                             </div>
                             <div class="product_buttons">
                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
+                                    <div
                                         class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                         <div>
                                             <div>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="product_buttons">
                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
+                                    <div
                                         class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                         <div>
                                             <div>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="product_buttons">
                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
+                                    <div
                                         class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                         <div>
                                             <div>
@@ -174,7 +174,7 @@
                             </div>
                             <div class="product_buttons">
                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
+                                    <div
                                         class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                         <div>
                                             <div>
@@ -212,7 +212,7 @@
                             </div>
                             <div class="product_buttons">
                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
+                                    <div
                                         class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                         <div>
                                             <div>
@@ -250,7 +250,7 @@
                             </div>
                             <div class="product_buttons">
                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
+                                    <div
                                         class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                         <div>
                                             <div>
@@ -270,9 +270,18 @@
         </div>
     </div>
 
+
+
+
+
     <br>
     <br>
     <br>
+
+
+
+
+
 
     <!-- LO MAS VENDIDO -->
 
@@ -304,7 +313,7 @@
                         </div>
                         <div class="product_buttons">
                             <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                <div onclick="buyProduct()"
+                                <div
                                     class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                     <div>
                                         <div>
@@ -343,7 +352,7 @@
                             </div>
                             <div class="product_buttons">
                                 <div class="text-right d-flex flex-row align-items-start justify-content-start">
-                                    <div onclick="buyProduct()"
+                                    <div
                                         class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                                         <div>
                                             <div>
@@ -425,6 +434,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 @endsection

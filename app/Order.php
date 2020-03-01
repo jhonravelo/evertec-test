@@ -11,8 +11,8 @@ class Order extends Model {
         "status"
     ];
 
-    public function details()
+    public function detail()
     {
-        return $this->hasMany(OrderDetail::class);
+        return $this->hasOne(OrderDetail::class);
     }
 }

@@ -30,8 +30,6 @@
 
     <div id="app">
 
-
-
         <!-- Menu -->
 
         <div class="menu">
@@ -73,7 +71,7 @@
             </div>
         </div>
 
-        <div class="super_container" onmousedown="return false">
+        <div class="super_container">
 
             <!-- Header -->
 
@@ -82,7 +80,7 @@
                 <div class="header_content d-flex flex-row align-items-center justify-content-start">
 
                     <div class="logo">
-                        <a href="./">
+                        <a href="#">
                             <div class="d-flex flex-row align-items-center justify-content-start">
                                 <div>
                                     <img src="{{ asset('asset/images/logo_1.png') }}" alt="">
@@ -99,13 +97,13 @@
                     <nav class="main_nav">
                         <ul class="d-flex flex-row align-items-start justify-content-start">
                             <li class="active">
-                                <a type="button">New</a>
+                                <a href="#">New</a>
                             </li>
                             <li>
-                                <a type="button">Second</a>
+                                <a href="#">Second</a>
                             </li>
                             <li>
-                                <a type="button">Favorites</a>
+                                <a href="#">Favorites</a>
                             </li>
                         </ul>
                     </nav>
@@ -124,7 +122,7 @@
                         </div>
 
                         <!-- Cart -->
-                        <div class="cart"><a href="cart">
+                        <div class="cart"><a href="cart.html">
                                 <div>
                                     <img class="svg" src="{{ asset('asset/images/cart.svg') }}"
                                         alt="https://www.flaticon.com/authors/freepik">
@@ -146,17 +144,7 @@
             </header>
 
 
-
-
-
-
             @yield('contenido')
-
-
-
-
-
-
 
             <!-- Footer -->
 
@@ -250,9 +238,7 @@
     <script src="{{ asset('js/all.js') }}" defer></script>
     <script src="{{ asset('js/shop.js') }}" defer></script>
 
-
-    </div>
-
+    @yield('scripts')
 
 </body>
 

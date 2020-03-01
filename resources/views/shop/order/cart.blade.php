@@ -1,4 +1,4 @@
-@extends('plantilla.plantilla')
+@extends('layouts.shop')
 @section('titulo','EvertecShop')
 @section('estilos')
 
