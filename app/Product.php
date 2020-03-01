@@ -1,16 +1,17 @@
-<?php
-
-namespace App;
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
-{
-    public function category() {
-        return $this->belongsTo(Category::class);
-    }
+class Product extends Model {
+    
+    protected $fillable=[
+        'description', 
+        'price', 
+        'image'
+    ];
 
-    public function images(){
-        return $this->morphMany('App\Image','imageable');
+    public function ordersDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
     }
 }
