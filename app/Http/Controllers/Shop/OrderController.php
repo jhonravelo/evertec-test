@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use Dnetix\Redirection\PlacetoPay;
+use Exception;
 
 class OrderController extends Controller
 {
@@ -43,7 +45,55 @@ class OrderController extends Controller
         $order->save();
         $order->detail()->create($data['detail']);
 
-        return response()->json($order);
+        $seed = date('c');
+        $secretKey = '024h1IlD';
+        $trankey = sha1($seed.$secretKey);
+
+        $placetopay = new PlacetoPay([
+            'login' => 'evertecShop',
+            'tranKey' => $trankey,
+            'url' => "http://evertec.test",
+            'type' => PlacetoPay::TP_REST
+        ]);
+
+
+        // Request Information
+        $reference = 'TEST_' . time();
+
+        $requestPlay = [
+            'payment' => [
+                'reference' => $reference,
+                'description' => 'Testing payment',
+                'amount' => [
+                    'currency' => 'USD',
+                    'total' => 120,
+                ],
+            ],
+            'expiration' => date('c', strtotime('+2 days')),
+            'returnUrl' => 'http://evertec.test/response?reference=' . $reference,
+            'ipAddress' => '127.0.0.1',
+            'userAgent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
+        ];
+
+        try {
+
+            $orderId = $order['id'];
+
+            $response = $placetopay->request($requestPlay);
+        
+            if ($response->isSuccessful()) {
+                // Redirect the client to the processUrl or display it on the JS extension
+                // $response->processUrl();
+            } else {
+                // There was some error so check the message
+                // $response->status()->message();
+            }
+            var_dump($response->processUrl());
+        } catch (Exception $e) {
+            var_dump($e->getMessage());
+        }
+
+    
     }
 
     /**
