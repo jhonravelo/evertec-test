@@ -7,7 +7,7 @@ const listProduct = async id => {
     const url = `/api/product/${id}`;
     product = await ajax("GET", url).then(data => data);
     $("#image").attr("src", product.image);
-    $("#nameProduct").text(product.description);
+    $("#nameProduct").text(product.name);
 };
 
 const saveOrder = async() => {

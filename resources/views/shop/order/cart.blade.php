@@ -20,9 +20,12 @@
             <hr>
             <div class="row">
                 <div class="col-lg-9 col-xs-12">
-                    <h1 class="title-section row">Shoping cart</h1>
+                    <div class="row">
+                        <h1 class="title-section col-md-12">Shoping cart</h1>
+                        {{-- <h1 class="title-section col-md-3">CREATED</h1> --}}
+                    </div>
                     <div class="cart-item row">
-                        <div class="image-container col-xs-2">
+                        <div class="image-container col-xs-2" style="width: 20%;">
                             <a title="">
                                 <img src="{{$order->detail->product->image}}" alt="" class="image-cart">
                             </a>
@@ -30,7 +33,7 @@
                         <div class="item-title col-xs-12">
                             <span>
                                 <a href="/p/audi-fonos-bluetooth-sennheiser-over-ear-hd-440-wzy13l">
-                                    {{$order->detail->product->description}}
+                                    {{$order->detail->product->name}}
                                 </a>
                             </span>
                             <div>
@@ -42,7 +45,8 @@
                                 <div class="price-section">
                                     <div>
                                         <div class="lowest-price">
-                                            <span class="price-promotional">$ {{$order->detail->product->price}}</span>
+                                            <span class="price-promotional">$
+                                                {{number_format($order->detail->product->price, 2, ',', '.')}}</span>
                                             <span class="sprite sprite-cmr_co-sm"></span>
                                         </div>
                                     </div>
@@ -54,6 +58,11 @@
                                     <div class="badge-free-shipping"
                                         ng-show="item.fastestFreeShipping &amp;&amp; item.linioPlusLevel == 0">
                                         <span>FREE Regular Shipping</span>
+                                    </div>
+                                    <div class="delivery-date">
+                                        <p>
+                                            {{$order->detail->product->description}}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -72,6 +81,7 @@
                                     <option label="8" value="8">8</option>
                                 </select>
                             </div>
+
                         </div>
 
 
@@ -85,7 +95,7 @@
                             <li>
                                 <p>Subtotal (1)</p>
                                 <span class="price-main-sm pull-xs-right subtotal-price">$
-                                    {{$order->detail->product->price*$order->detail->quantity}}</span>
+                                    {{number_format($order->detail->product->price*$order->detail->quantity, 2, ',', '.')}}</span>
                             </li>
 
                             <li>
@@ -95,7 +105,11 @@
 
                             <li>
                                 <p>Discount</p>
-                                <span class="price-light-md pull-xs-right">-$0</span>
+                                <span class="price-light-md pull-xs-right">- $ {{number_format(0, 2, ',', '.')}}</span>
+                            </li>
+                            <li>
+                                <p>Status</p>
+                                <span class="price-light-md pull-xs-right bold">{{$order->status}}</span>
                             </li>
 
                             <section class="summary-total-pay-section">
@@ -104,7 +118,7 @@
                                         Total
                                         <span class="price-main-md pull-xs-right"
                                             ng-bind="cart.data.grandTotal|formatMoney">$
-                                            {{$order->detail->product->price*$order->detail->quantity}}</span>
+                                            {{number_format($order->detail->product->price*$order->detail->quantity, 2, ',', '.')}}</span>
                                     </h3>
                                 </li>
                                 <li class="summary-pay row" style="border-bottom:0px ">
