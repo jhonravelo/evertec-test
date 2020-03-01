@@ -1,4 +1,5 @@
 const buyProduct = () => {
-    console.log('agregar');
+    location.href = "order";
+    console.log('cart');
 
 }

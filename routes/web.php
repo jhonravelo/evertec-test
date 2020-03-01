@@ -6,6 +6,9 @@ Auth::routes();
 Route::get('/', function () {
     return view('tienda.index');
 });
+Route::get('/order', function () {
+    return view('tienda.order');
+});
 Route::get('/cart', function () {
     return view('tienda.cart');
 });
