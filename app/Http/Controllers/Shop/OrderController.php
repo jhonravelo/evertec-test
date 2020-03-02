@@ -1,23 +1,19 @@
-<?php
-
-namespace App\Http\Controllers\Shop;
+<?php namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Product;
-use Illuminate\Http\Request;
 use Dnetix\Redirection\PlacetoPay;
 use Exception;
+use Illuminate\Http\Request;
 
-class OrderController extends Controller
-{
+class OrderController extends Controller{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         $products = Product::all();
         return view('shop.index', compact('products'));
     }
@@ -27,8 +23,7 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         return view('shop.order.create');
     }
 
@@ -45,90 +40,85 @@ class OrderController extends Controller
         $order->save();
         $order->detail()->create($data['detail']);
 
-        $seed = date('c');
-        $nonce = base64_encode(rand(0, 10000));
-        $secretKey = '024h1IlD';
-        $trankey = base64_encode(sha1($nonce . $seed . $secretKey, true));
-        $UrlPlaceToPayTest = 'https://test.placetopay.com/redirection/api/session/';
-
-        $placetopay = new PlacetoPay([
-            'login' => '6dd490faf9cb87a9862245da41170ff2',
-            'tranKey' => $trankey,
-            'url' => 'https://test.placetopay.com/redirection/api/session/',
-            'type' => PlacetoPay::TP_REST
-        ]);
-
-        // Request Information
         $reference = 'TEST_' . time();
 
-        $requestPlay = [
-            "locale" => "es_CO",
-            // "auth" => [
-            //     "login" => "6dd490faf9cb87a9862245da41170ff2",
-            //     "seed" => $seed,
-            //     "nonce" => $nonce,
-            //     "tranKey" => '024h1IlD'
-            // ],
-            "buyer" => [
-                "documentType" => "CC",
-                "document" => "1001882274",
-                "name" => "John",
-                "surname" => "Ravelo",
-                'company' => 'pluriza',
-                "email" => "jhonjairoravelomora@gmail.com",
-                "address" => [
-                    "street" => "742 Evergreen Terrace",
-                    "city" => "Springfield",
-                    "country" => "US"
-                ],
-                'mobile' => '3012951910'
-            ],
-            "payment" => [
-                "reference" => "123456",
-                "description" => "Testing Payment",
-                "amount" => [
-                    "currency" => "COP",
-                    "total" => "200000"
-                ],
-                "allowPartial" => false,
-                'items' => [
-                    'sku' => '3',
-                    'name' => 'Nombre del producto',
-                    'category' => 'physical',
-                    'qty' => '6',
-                    'price' => 50000.00,
-                    'tax' => 0
-                ]
-            ],
-            "paymentMethod" => 'CR_VS, RM_MC, CR_AM, CR_DN, CR_VE, GNRIS, CDNSA',
-            "expiration" => "2020-03-02T06:30:29-05:00",
-            "returnUrl" => "/order/create",
-            "cancelUrl" => "/",
-            "userAgent" => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36",
-            "ipAddress" => "127.0.0.1",
-            "skipResult" => false,
-            "noBuyerFill" => false
-        ];
+        // Request Information
+        $request = json_decode('{
+            "locale": "es_CO",
+            "buyer": {
+                "name": "Isabella",
+                "surname": "Caro",
+                "email": "isabellacaro@javeriana.edu.co",
+                "address": {
+                    "street": "Carrera 6 # 45 - 09 Apto 1016 Edificio Portal de la javeriana II",
+                    "city": "Bogota",
+                    "phone": "3206515736",
+                    "country": "CO"
+                },
+                "mobile": null
+            },
+            "payment": {
+                "reference": "300038996",
+                "description": "Pago en PlacetoPay",
+                "amount": {
+                    "taxes": [
+                        {
+                            "kind": "valueAddedTax",
+                            "amount": "42635.0000",
+                            "base": 224397
+                        }
+                    ],
+                    "details": [
+                        {
+                            "kind": "subtotal",
+                            "amount": "224397.0000"
+                        },
+                        {
+                            "kind": "discount",
+                            "amount": 0
+                        },
+                        {
+                            "kind": "shipping",
+                            "amount": "0.0000"
+                        }
+                    ],
+                    "currency": "COP",
+                    "total": "267032.0000"
+                },
+                "shipping": {
+                    "name": "Isabella",
+                    "surname": "Caro",
+                    "email": "isabellacaro@javeriana.edu.co",
+                    "address": {
+                        "street": "Carrera 6 # 45 - 09 Apto 1016 Edificio Portal de la javeriana II",
+                        "city": "Bogota",
+                        "phone": "3206515736",
+                        "country": "CO"
+                    },
+                    "mobile": null
+                }
+            },
+            "returnUrl": "https:\/\/www.evertec.test:441\/Perros\/placetopay\/processing\/response\/?reference=300038996",
+            "expiration": "' . date('c', strtotime('+5 minutes')) . '",
+            "ipAddress": "120.0.0.1",
+            "userAgent": "Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/55.0.2883.87 Safari\/537.36"
+        }', true);
 
         try {
-
-            $response = $placetopay->CreateRequest($requestPlay);
-
-            dd($response);
+            $response = $this->placetopay()->request($request);
 
             if ($response->isSuccessful()) {
                 // Redirect the client to the processUrl or display it on the JS extension
-                return $response->processUrl();
+                // $response->processUrl();
             } else {
                 // There was some error so check the message
-                return $response->status()->message();
+                // $response->status()->message();
             }
-            // var_dump($response->processUrl());
+            var_dump($response);
         } catch (Exception $e) {
             var_dump($e->getMessage());
         }
 
-        // return response()->json($order);
     }
 
     /**
@@ -191,5 +181,31 @@ class OrderController extends Controller
     public function cart(Order $order)
     {
         return view('shop.order.cart', compact('order'));
+    }
+
+    public function placetopay()
+    {
+        $seed = date('c');
+        $secretKey = '024h1IlD';
+
+        if (function_exists('random_bytes')) {
+            $nonce = bin2hex(random_bytes(16));
+        } elseif (function_exists('openssl_random_pseudo_bytes')) {
+            $nonce = bin2hex(openssl_random_pseudo_bytes(16));
+        } else {
+            $nonce = mt_rand();
+        }
+
+        $tranKey = base64_encode(sha1($nonce . $seed . $secretKey));
+        
+        $nonceBase64 = base64_encode($nonce);
+
+        return new PlacetoPay([
+            "login" => "6dd490faf9cb87a9862245da41170ff2",
+            "tranKey" => $tranKey,
+            "url" => "https://secure.placetopay.com/redirection/api/session/",
+            "nonce" => $nonce,
+            "seed" => $seed,
+        ]);
     }
 }

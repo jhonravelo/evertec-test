@@ -3,7 +3,7 @@ const ajax = (method, url, data) => {
         method: method,
         url: url,
         data: data,
-        // beforeSend: function () {
+        dataType: "json"
 
         // }
     });

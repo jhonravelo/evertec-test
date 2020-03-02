@@ -7,6 +7,9 @@ Route::get('/order/create', 'Shop\OrderController@create');
 Route::get('/order/{order}', 'Shop\OrderController@show');
 Route::get('/order/{order}/edit', 'Shop\OrderController@edit');
 Route::get('/order/{order}/cart', 'Shop\OrderController@cart');
+Route::get('/response/{response}', function($response){
+
+});
 
 
 
