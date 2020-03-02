@@ -28,11 +28,28 @@ const saveOrder = async() => {
 
     await ajax("POST", url, data)
         .done(result => {
+
+            //playtopace(result);
             // window.location = `/order/${result.id}/cart`;
             console.log(result);
-            
+
         })
         .fail(err => {
             console.log(err);
         });
 };
+
+const playtopace = async(data) => {
+    const url = `https://test.placetopay.com/redirection/api/session/`;
+    const data1 = {
+        auth: {
+            "login": "6dd490faf9cb87a9862245da41170ff2",
+            "tranKey": "024h1IlD",
+            "seed": "2020-03-01T22:17:23-04:00",
+        }
+    }
+
+    await ajax("POST", url, data1).then(Data => {
+        console.log(data);
+    })
+}
