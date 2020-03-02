@@ -1,16 +1,11 @@
-<?php
-
-namespace App\Http\Controllers\Shop;
+<?php namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
-use Dnetix\Redirection\PlacetoPay;
-use Exception;
 
-class OrderController extends Controller
-{
+class OrderController extends Controller{
     /**
      * Display a listing of the resource.
      *
@@ -46,73 +41,50 @@ class OrderController extends Controller
         $order->detail()->create($data['detail']);
 
         $seed = date('c');
-        $nonce = base64_encode(rand(0, 10000));
+        $nonce1 = rand(0, 10000);
+        $nonce = base64_encode($nonce1);
         $secretKey = '024h1IlD';
-        $trankey = base64_encode(sha1($nonce . $seed . $secretKey, true));
-        $UrlPlaceToPayTest = 'https://test.placetopay.com/redirection/api/session/';
+        $trankey = base64_encode(sha1($nonce1 . $seed . $secretKey, true));
 
         $placetopay = new PlacetoPay([
             'login' => '6dd490faf9cb87a9862245da41170ff2',
-            'tranKey' => $trankey,
-            'url' => 'https://test.placetopay.com/redirection/api/session/',
-            'type' => PlacetoPay::TP_REST
+            'tranKey' => $secretKey,
+            'url' => 'https://evertec-test.test:441',
         ]);
 
-        // Request Information
+// Request Information
         $reference = 'TEST_' . time();
 
         $requestPlay = [
-            "locale" => "es_CO",
-            // "auth" => [
-            //     "login" => "6dd490faf9cb87a9862245da41170ff2",
-            //     "seed" => $seed,
-            //     "nonce" => $nonce,
-            //     "tranKey" => '024h1IlD'
-            // ],
+            'payment' => [
+                'reference' => $reference,
+                'description' => 'Testing payment',
+                'amount' => [
+                    'currency' => 'USD',
+                    'total' => 120,
+                ],
+            ],
             "buyer" => [
-                "documentType" => "CC",
-                "document" => "1001882274",
-                "name" => "John",
-                "surname" => "Ravelo",
-                'company' => 'pluriza',
-                "email" => "jhonjairoravelomora@gmail.com",
+                "name" => "Isabella",
+                "surname" => "Caro",
+                "email" => "isabellacaro@javeriana.edu.co",
                 "address" => [
-                    "street" => "742 Evergreen Terrace",
-                    "city" => "Springfield",
-                    "country" => "US"
+                    "street" => "Carrera 6 # 45 - 09 Apto 1016 Edificio Portal de la javeriana II",
+                    "city" => "Bogota",
+                    "phone" => "3206515736",
+                    "country" => "CO",
                 ],
-                'mobile' => '3012951910'
+                "mobile" => null,
             ],
-            "payment" => [
-                "reference" => "123456",
-                "description" => "Testing Payment",
-                "amount" => [
-                    "currency" => "COP",
-                    "total" => "200000"
-                ],
-                "allowPartial" => false,
-                'items' => [
-                    'sku' => '3',
-                    'name' => 'Nombre del producto',
-                    'category' => 'physical',
-                    'qty' => '6',
-                    'price' => 50000.00,
-                    'tax' => 0
-                ]
-            ],
-            "paymentMethod" => 'CR_VS, RM_MC, CR_AM, CR_DN, CR_VE, GNRIS, CDNSA',
-            "expiration" => "2020-03-02T06:30:29-05:00",
-            "returnUrl" => "/order/create",
-            "cancelUrl" => "/",
-            "userAgent" => "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36",
-            "ipAddress" => "127.0.0.1",
-            "skipResult" => false,
-            "noBuyerFill" => false
+            'expiration' => date('c', strtotime('+2 days')),
+            'returnUrl' => "http://evertec-test.test/response/$reference",
+            'ipAddress' => '127.0.0.1',
+            'userAgent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36',
         ];
 
         try {
 
-            $response = $placetopay->CreateRequest($requestPlay);
+            $response = $placetopay->request($requestPlay);
 
             dd($response);
 
