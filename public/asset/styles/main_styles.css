@@ -49,7 +49,7 @@ body {
     font-size: 14px;
     font-weight: 400;
     background: #FFFFFF;
-    color: #a5a5a5;
+    /* color: #a5a5a5; */
 }
 
 div {
@@ -890,11 +890,11 @@ section {
 }
 
 .product_name {
-    max-width: 175px;
+    max-width: 190px;
 }
 
 .product_name a {
-    font-size: 20px;
+    font-size: 14px;
     line-height: 1.2;
     color: #4a4a4a;
     font-weight: 500;
@@ -1005,7 +1005,7 @@ section {
 }
 
 .product_price {
-    font-size: 30px;
+    font-size: 20px;
     color: #4a4a4a;
     font-weight: 500;
     margin-top: 19px;
@@ -1213,7 +1213,7 @@ section {
 
 .products {
     background: #FFFFFF;
-    padding-top: 72px;
+    padding-top: 90px;
     padding-bottom: 82px;
 }
 
@@ -1488,4 +1488,323 @@ section {
 
 .pointer {
     cursor: pointer !important;
+}
+
+.title-section {
+    border-bottom: 1px solid #ccc;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 16px;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+}
+
+.cart-summary-section {
+    padding-left: 28px;
+    padding-right: 0;
+}
+
+.cart-summary-section .summary-container {
+    border: 1px solid #ccc;
+    padding-top: 16px;
+    margin-left: -1px;
+    padding-left: 24px;
+    padding-right: 24px
+}
+
+.title-summary {
+    width: 100%;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+.style-h3 {
+    font-size: 0.94rem !important;
+    line-height: 1.5rem !important;
+    line-height: 20px;
+    margin-bottom: 0;
+    font-weight: 700
+}
+
+.summary {
+    color: #666;
+    list-style-type: none;
+    margin: 8px 0;
+    padding-left: 0;
+}
+
+.summary li {
+    border-bottom: 1px solid #ccc;
+    margin-left: 0;
+    padding-bottom: .5rem;
+}
+
+.summary p {
+    display: inline-block;
+    font-family: Arial, Roboto, "-apple-system", Helvetica, sans-serif;
+    font-size: .9rem;
+}
+
+ul li {
+    margin-bottom: 8px;
+    margin-left: 8px;
+    color: #666;
+    line-height: 1.5rem;
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+.pull-xs-right {
+    float: right !important;
+}
+
+.summary .shipping-price,
+.summary .subtotal-price {
+    margin-top: 2px;
+}
+
+.price-main-sm {
+    color: #ea2840;
+}
+
+.price-main-sm,
+.price-secondary-sm {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4rem;
+}
+
+.price-base-md {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4rem;
+}
+
+.vertical-usp {
+    margin-top: 16px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.vertical-usp .usp-cart-container {
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 20px;
+}
+
+.vertical-usp .cart-usp {
+    border-top: 1px solid #ccc;
+}
+
+.vertical-usp .usp-cart-container .badge-customer-protection .icon,
+.vertical-usp .usp-cart-container .badge-customer-protection .toggle-whatsapp>span:before {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.sprite-customer-protection {
+    background-image: url(./../images/alice-1a95cceb7a-e9676af16a.png);
+    background-position: 29px 0px;
+    width: 400px;
+    height: 119px;
+    zoom: 0.50;
+    background-repeat: no-repeat;
+}
+
+.summary-total-pay-section {
+    margin-top: 20px;
+}
+
+li.summary-total {
+    border-bottom: 0;
+    padding: 0;
+}
+
+li.summary-total h3 {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.price-main-md {
+    color: #ea2840;
+}
+
+.price-main-md,
+.price-promotional,
+.price-secondary-md {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.4rem;
+}
+
+h3 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.product-detail {
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 20px;
+}
+
+.product-info-container {
+    -webkit-columns: 2;
+    columns: 2;
+    -webkit-column-gap: 3rem;
+    column-gap: 3rem;
+}
+
+.product-detail .gallery-product-image {
+    padding-left: 0;
+    padding-bottom: 20px;
+    text-align: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.product-detail .product-title {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 2px;
+}
+
+.price-base-md {
+    color: #666;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4rem;
+}
+
+.product-buy-information-block .product-price .price-main-md {
+    margin-bottom: 20px;
+}
+
+.lowest-price:only-of-type .price-main-md {
+    color: #ea2840;
+}
+
+.color-red {
+    color: red;
+}
+
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-cart {
+    /* width: 27% !important; */
+    height: 25% !important
+}
+
+.cart-item {
+    border-bottom: 1px solid #ccc;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 24px 12px 20px;
+    display: table;
+    width: 100%;
+}
+
+.cart-item .image-container {
+    text-align: center;
+    display: table-cell;
+    float: none;
+    vertical-align: top;
+    padding-right: 17px;
+}
+
+.cart-item .item-title {
+    margin-bottom: 12px;
+}
+
+.cart-item .item-title a {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.cart-item .item-title .badge-condition-type {
+    font-size: .8rem;
+}
+
+.cart-item .badge-condition-type {
+    font-size: .8rem;
+    margin-top: 12px;
+}
+
+.badge-condition-type {
+    margin-top: 12px;
+    font-size: .9rem;
+}
+
+.badge-condition-type {
+    font-family: Arial, Roboto, "-apple-system", Helvetica, sans-serif;
+    font-size: .8rem;
+    color: #333;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.price-promotional {
+    color: #ea2840;
+}
+
+.cart-item .amount-section {
+    float: right;
+    padding-right: 8px;
+}
+
+.cart-item .delivery-section {
+    padding-right: 12px;
+}
+
+.cart-item .delivery-section .badge-free-shipping {
+    font-size: .9rem;
+    margin-bottom: 20px;
+}
+
+.badge-free-shipping {
+    font-size: .9rem;
+    font-weight: 700;
+    font-family: Arial, Roboto, "-apple-system", Helvetica, sans-serif;
+    color: #45a00a;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.price-section {
+    margin-top: 11px;
+}
+
+.cart-item .amount-section p {
+    float: left;
+    margin-bottom: 6px;
+    margin-right: 8px;
+    margin-top: 6px;
+}
+
+.cart-item .amount-section select {
+    float: left;
+    margin: 0;
+    width: 60px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.promotion-points {
+    color: #333;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+    padding-top: 6px;
 }
