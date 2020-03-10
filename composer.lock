@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "dnetix/redirection",
-            "version": "1.0.3",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dnetix/redirection.git",
-                "reference": "954e7985f5aa567c0af5ace97f2b9e3bb37e335f"
+                "reference": "93fce47930a8ae50a6d353f9bc5f0eb19cc6e85e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dnetix/redirection/zipball/954e7985f5aa567c0af5ace97f2b9e3bb37e335f",
-                "reference": "954e7985f5aa567c0af5ace97f2b9e3bb37e335f",
+                "url": "https://api.github.com/repos/dnetix/redirection/zipball/93fce47930a8ae50a6d353f9bc5f0eb19cc6e85e",
+                "reference": "93fce47930a8ae50a6d353f9bc5f0eb19cc6e85e",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 }
             ],
             "description": "Library to connect with PlacetoPay Redirection service",
-            "time": "2020-02-21T15:40:07+00:00"
+            "time": "2020-03-04T21:58:06+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -5324,5 +5324,6 @@
     "platform": {
         "php": "^7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

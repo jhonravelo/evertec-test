@@ -109,10 +109,10 @@ class OrderController extends Controller{
 
             if ($response->isSuccessful()) {
                 // Redirect the client to the processUrl or display it on the JS extension
-                // $response->processUrl();
+                //redirect($response->processUrl());
             } else {
                 // There was some error so check the message
-                // $response->status()->message();
+                $response->status()->message();
             }
             var_dump($response);
         } catch (Exception $e) {
@@ -202,8 +202,8 @@ class OrderController extends Controller{
 
         return new PlacetoPay([
             "login" => "6dd490faf9cb87a9862245da41170ff2",
-            "tranKey" => $tranKey,
-            "url" => "https://secure.placetopay.com/redirection/api/session/",
+            "tranKey" => "024h1IlD",
+            "url" => "https://test.placetopay.com/redirection/",
             "nonce" => $nonce,
             "seed" => $seed,
         ]);
