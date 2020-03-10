@@ -16,12 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-
-Route::apiResource('category','API\CategoryController')->names('api.category');
-
-
-Route::apiResource('product','API\ProductController')->names('api.product');
-
-
-Route::delete('/eliminarimagen/{id}','API\ProductController@eliminarimagen')->name('api.eliminarimagen');
+Route::group(['middleware' => ['cors']], function () {
+    Route::post('order', 'Shop\OrderController@store')->name('api.order');
+    Route::put('order', 'Shop\OrderController@update')->name('api.order');
+    Route::get('product', 'Shop\ProductController@store')->name('api.order');
+    Route::get('product/{product}', 'Shop\ProductController@show')->name('api.order');
+});
