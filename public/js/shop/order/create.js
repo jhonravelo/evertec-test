@@ -28,10 +28,8 @@ const saveOrder = async() => {
 
     await ajax("POST", url, data)
         .done(result => {
-
-            // window.location = `/order/${result.id}/cart`;
+            window.location = `/order/${result.id}/cart`;
             console.log(result);
-
         })
         .fail(err => {
             console.log(err);
