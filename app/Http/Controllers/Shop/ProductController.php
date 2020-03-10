@@ -1,13 +1,10 @@
-<?php
-
-namespace App\Http\Controllers\Shop;
+<?php namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
-{
+class ProductController extends Controller{
     /**
      * Display a listing of the resource.
      *

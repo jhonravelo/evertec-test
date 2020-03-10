@@ -3,7 +3,13 @@ const ajax = (method, url, data) => {
         method: method,
         url: url,
         data: data,
-        dataType: "json"
+        headers: {
+            "accept": "application/json",
+            "Access-Control-Allow-Origin": "*"
+        },
+        contentType: 'application/x-www-form-urlencoded',
+        xhrFields: { withCredentials: true },
+        // beforeSend: function () {
 
         // }
     });
