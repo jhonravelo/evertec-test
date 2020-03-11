@@ -13,17 +13,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css"
-        href="{{ asset('asset/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('asset/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">
 
     @yield('estilos')
-
-
-
 </head>
 
 <body>
@@ -121,12 +115,12 @@
                             </form>
                         </div>
 
-                        <!-- Cart -->
-                        <div class="cart"><a type="button" onclick="orderSummary()">
+                        <!-- Admin -->
+                        <div class="cart">
+                            <a type="button" href="/admin">
                                 <div>
-                                    <img class="svg" src="{{ asset('asset/images/cart.svg') }}"
+                                    <img class="svg" src="{{ asset('asset/images/user.svg') }}"
                                         alt="https://www.flaticon.com/authors/freepik">
-                                    <div>1</div>
                                 </div>
                             </a>
                         </div>
@@ -139,6 +133,8 @@
                             </div>
                             <div>(+571) 379-5628</div>
                         </div>
+                         
+
                     </div>
                 </div>
             </header>
@@ -236,7 +232,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/all.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="{{ asset('js/shop/shop.js') }}" defer></script>
+    
+    
 
     @yield('scripts')
 

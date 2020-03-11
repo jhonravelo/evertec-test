@@ -13,7 +13,7 @@ const getInfoOrder = async () => {
     orderId = (orderId !== 0) ? orderId : inputOrderId;
     const url = `/api/order/${orderId}/buy/status`;
     await ajax("POST", url, {requestId: requestId}).done(result => {
-        
+        Swal.close();
         if(requestId > 0){
             statusOrder(result);
         }else{
@@ -21,6 +21,7 @@ const getInfoOrder = async () => {
             document.getElementById('btnContinueTransaction').style.display = "none";
         }
     }).fail(err => {
+        Swal.close();
         console.log(err);
     });
 }
