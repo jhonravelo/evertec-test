@@ -9,9 +9,16 @@ const ajax = (method, url, data) => {
         },
         contentType: 'application/x-www-form-urlencoded',
         xhrFields: { withCredentials: true },
-        // beforeSend: function () {
-
-        // }
+        beforeSend: function () {
+            Swal.fire({
+                title: 'Loading...',
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                onOpen: () => {
+                  swal.showLoading();
+                }
+            })
+        }
     });
 }
 

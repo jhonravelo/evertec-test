@@ -29,7 +29,7 @@ class OrderRequest extends FormRequest
                 # code...
                 return [
                     "customer_name" => "required",
-                    "customer_email" => "required",
+                    "customer_email" => "required|email",
                     "customer_mobile" => "required",
                     "detail.product_id" => "required",
                     "detail.product_value" => "required",
