@@ -1,4 +1,4 @@
-window.onload = async() => {
+window.onload = async () => {
     localStorage.setItem("orderId", "");
     localStorage.setItem("requestId", "");
     localStorage.setItem("processUrl", "");
@@ -8,12 +8,15 @@ window.onload = async() => {
 
 const listProduct = async id => {
     const url = `/api/product/${id}`;
-    product = await ajax("GET", url).then(data => data);
+    product = await ajax("GET", url).then(data => {
+        Swal.close();
+        return data
+    });
     $("#image").attr("src", product.image);
     $("#nameProduct").text(product.name);
 };
 
-const saveOrder = async() => {
+const saveOrder = async () => {
     const url = `/api/order`;
     var quantity = $("#quantity").val();
     const data = {
@@ -30,10 +33,32 @@ const saveOrder = async() => {
     };
 
     await ajax("POST", url, data).done(result => {
+        Swal.close();
         localStorage.setItem("orderId", result.id);
         window.location = `/order/${result.id}/cart`;
         console.log(result);
-    }).fail(err => {
-        console.log(err);
+    }).fail((err) => {
+        Swal.close();
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        $.each(err.responseJSON.errors, function (key, item) {
+            console.log(item);
+            
+            Toast.fire({
+                icon: 'error',
+                title: item
+            })
+        }
+        );
     });
 };

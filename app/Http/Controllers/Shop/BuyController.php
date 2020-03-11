@@ -11,7 +11,8 @@ class BuyController extends Controller{
     public function store(Request $request){
 
         $data = $request->input();
-        $reference = Carbon::now().$request->id;
+        $reference = "TEST_".$request->id;
+        $baseUrl = env('APP_URL');
         $request = [
             "locale" => "es_CO",
             "buyer" => [
@@ -85,7 +86,7 @@ class BuyController extends Controller{
                     "mobile" => $request->customer_mobile
                 ]
             ],
-            "returnUrl" => "https://evertec.test:441/order/$request->id/cart",
+            "returnUrl" => "$baseUrl/order/$request->id/cart",
             "expiration" => date('c', strtotime('+5 minutes')),
             "ipAddress" => "127.0.0.1",
             "userAgent" => "Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/55.0.2883.87 Safari\/537.36"
@@ -124,7 +125,7 @@ class BuyController extends Controller{
                     $order->update(["status" => "REJECTED"]);
                     $order->save();
                 } else{
-                    $$order->update(["status" => "CREATED"]);
+                    $order->update(["status" => "CREATED"]);
                     $order->save();
                 }
             }

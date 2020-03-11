@@ -85,17 +85,14 @@
     </div>
 
     <br>
-    <br>
-    <br>
 
     <!-- LO MAS VENDIDO -->
 
-    <div class="lomasvendidocontenedor">
+    <!-- <div class="lomasvendidocontenedor">
         <div class="section_title text-center">Lo mas vendido</div>
         <br>
         <div class="lomasvendido owl-carousel owl-theme">
 
-            <!-- item-->
 
             <div class="">
                 <div class="product">
@@ -132,8 +129,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- item-->
 
             <div class="item">
                 <div class="">
@@ -174,14 +169,10 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
 
 </div>
 
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 

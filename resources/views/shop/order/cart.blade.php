@@ -127,7 +127,7 @@
                                         <a type="button" href="#" id="btnContinueTransaction" style="display:none" class="btn btn-lg btn-primary summary-btn-process-pay col-md-11">
                                             Continue Transaction
                                         </a>
-                                        <a type="button" onclick="buyOrder('{{$order}}')" id="btnSaveOrder" class="btn btn-lg btn-primary summary-btn-process-pay col-md-11">
+                                        <a type="button" href="#" onclick="buyOrder('{{$order}}')" id="btnSaveOrder" class="btn btn-lg btn-primary summary-btn-process-pay col-md-11">
                                             Process Purchase
                                         </a>
                                     @endif
