@@ -16,9 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::group(['middleware' => ['cors']], function () {
     Route::post('order', 'Shop\OrderController@store')->name('api.order');
-    Route::put('order', 'Shop\OrderController@update')->name('api.order');
-    Route::get('product', 'Shop\ProductController@store')->name('api.order');
-    Route::get('product/{product}', 'Shop\ProductController@show')->name('api.order');
-});
+    Route::put('order/{product}', 'Shop\OrderController@update')->name('api.order.update');
+    Route::post('order/{order}/buy', 'Shop\BuyController@store')->name('api.order.store');
+    Route::post('order/{order}/buy/status', 'Shop\BuyController@infoOrder')->name('api.order.buy.status');
+    Route::get('product', 'Shop\ProductController@index')->name('api.product');
+    Route::get('product/{product}', 'Shop\ProductController@show')->name('api.product.show');

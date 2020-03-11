@@ -1,4 +1,7 @@
 window.onload = async() => {
+    localStorage.setItem("orderId", "");
+    localStorage.setItem("requestId", "");
+    localStorage.setItem("processUrl", "");
     var productId = localStorage.getItem("productId");
     await listProduct(productId);
 };
@@ -26,12 +29,11 @@ const saveOrder = async() => {
         }
     };
 
-    await ajax("POST", url, data)
-        .done(result => {
-            window.location = `/order/${result.id}/cart`;
-            console.log(result);
-        })
-        .fail(err => {
-            console.log(err);
-        });
+    await ajax("POST", url, data).done(result => {
+        localStorage.setItem("orderId", result.id);
+        window.location = `/order/${result.id}/cart`;
+        console.log(result);
+    }).fail(err => {
+        console.log(err);
+    });
 };

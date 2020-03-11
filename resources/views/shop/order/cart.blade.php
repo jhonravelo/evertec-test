@@ -109,7 +109,7 @@
                             </li>
                             <li>
                                 <p>Status</p>
-                                <span class="price-light-md pull-xs-right bold">{{$order->status}}</span>
+                                <span class="price-light-md pull-xs-right bold" id="statusOrder">{{$order->status}}</span>
                             </li>
 
                             <section class="summary-total-pay-section">
@@ -121,10 +121,16 @@
                                             {{number_format($order->detail->product->price*$order->detail->quantity, 2, ',', '.')}}</span>
                                     </h3>
                                 </li>
-                                <li class="summary-pay row" style="border-bottom:0px ">
-                                    <a href="button" class="btn btn-lg btn-primary summary-btn-process-pay col-md-11">
-                                        Process Purchase
-                                    </a>
+                                <li class="summary-pay row" style="border-bottom:0px">
+                                    <input type="hidden" name="orderId" id="orderId" value="{{$order->id}}">
+                                    @if($order->status != "PAYED")
+                                        <a type="button" href="#" id="btnContinueTransaction" style="display:none" class="btn btn-lg btn-primary summary-btn-process-pay col-md-11">
+                                            Continue Transaction
+                                        </a>
+                                        <a type="button" onclick="buyOrder('{{$order}}')" id="btnSaveOrder" class="btn btn-lg btn-primary summary-btn-process-pay col-md-11">
+                                            Process Purchase
+                                        </a>
+                                    @endif
                                 </li>
                             </section>
                         </ul>
